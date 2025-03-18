@@ -1,0 +1,18 @@
+Step 1: Enable GitHub Actions & CodeQL
+Go to your GitHub repository.
+Click on the "Actions" tab.
+In the search bar, type "CodeQL".
+Select "CodeQL Analysis" from the suggested workflows.
+Click "Set up this workflow".
+Step 2: Configure and Commit the Workflow
+GitHub will generate a default codeql-analysis.yml file.
+You can modify the languages if needed (ensure python is included).
+Click "Commit changes" to add the workflow to .github/workflows/.
+Step 3: Run the CodeQL Scan
+After committing, the workflow will start automatically.
+Go to the "Actions" tab → Click on the running "CodeQL Analysis" job.
+Wait for the scan to complete and review security findings.
+Next Steps
+Review detected vulnerabilities under Security > Code scanning alerts.
+Fix critical issues and commit changes.
+Let me know if you need help analyzing the results!
