@@ -16,3 +16,42 @@ Next Steps
 Review detected vulnerabilities under Security > Code scanning alerts.
 Fix critical issues and commit changes.
 Let me know if you need help analyzing the results!
+
+
+
+
+
+
+Method 1: Download CodeQL CLI (Recommended)
+1.	Download CodeQL CLI
+o	Go to: CodeQL CLI Releases
+o	Download the latest Windows (zip) release.
+2.	Extract the ZIP File
+o	Extract it to C:\codeql (or any preferred location).
+o	Inside the folder, find codeql.exe.
+3.	Add CodeQL to System PATH
+o	Open Command Prompt (cmd) as Administrator and run:
+
+
+Step 2: Prepare a Vulnerable Python Script
+1.	Create a Project Folder
+Open CMD and run:
+mkdir C:\codeql-lab
+cd C:\codeql-lab
+Create a File (vuln.py) with SQL Injection Save this Python script in C:\codeql-lab\vuln.py:
+
+2.	Create a CodeQL Database:
+codeql database create my-python-db --language=python --source-root=.
+o	This will analyze the Python files and create a database for CodeQL queries.
+Step 4: Run CodeQL to Detect SQL Injection
+1.	Navigate to the CodeQL Queries Folder
+o	Clone the official CodeQL repository (if not already downloaded):
+git clone https://github.com/github/codeql C:\codeql-repo
+o	Move to the Python Security Queries Folder:
+cd C:\codeql-repo\python\ql\src\Security\CWE-089\
+2.	Run the SQL Injection Query:
+codeql query run --database=C:\codeql-lab\my-python-db SqlInjection.ql
+o	This will scan the vuln.py script for SQL injection.
+Step 5: Analyze CodeQL Output
+•	If a vulnerability is found, you will see:
+Alert: Possible SQL Injection detected at vuln.py:5
